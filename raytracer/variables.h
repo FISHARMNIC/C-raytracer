@@ -1,18 +1,18 @@
 #define SCREEN_WIDTH 400
 #define SCREEN_HEIGHT 400
 
-#define IMAGE_WIDTH 150
-#define IMAGE_HEIGHT 150
+#define IMAGE_WIDTH 200
+#define IMAGE_HEIGHT 200
 
 #define PERSPECTIVE 8 // the lower the stronger
 #define LIGHT_STRENGTH 200
 #define LIGHT_TOLERANCE 200 // light size 
-#define RAY_DURATION 300
+#define RAY_DURATION 400
 
 #define DEEPEST_Z -100
 #define NEAREST_Z 200
 
-#define NATURAL_LIGHT 0.3
+#define NATURAL_LIGHT 0.15
 // --------------------------
 
 
