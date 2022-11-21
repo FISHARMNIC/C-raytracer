@@ -1,28 +1,20 @@
-#define SCREEN_WIDTH 300
-#define SCREEN_HEIGHT 300
+#define SCREEN_WIDTH 200
+#define SCREEN_HEIGHT 200
 
-#define IMAGE_WIDTH 100
-#define IMAGE_HEIGHT 100
+#define IMAGE_WIDTH 200
+#define IMAGE_HEIGHT 200
 
 #define PERSPECTIVE 8 // the lower the stronger
 #define LIGHT_STRENGTH 0.55 // diffuse, higher the more defined
-
-#define LIGHT_SIZE 30 // light size 
-#define LIGHT_TOLERANCE 10 // experimental 
-
+#define LIGHT_TOLERANCE 50 // light size 
 #define RAY_DURATION 500
 #define STEP_QUALITY 20 // higher the slower the ray moves
 #define DEEPEST_Z -100
 #define NEAREST_Z 200
 
-#define NATURAL_LIGHT 0.5 //0.2
+#define NATURAL_LIGHT 0.2
 
 #define MAX_BOUNCES 5
-
-#define EXPERIMENTAL_XY_GRID 1 // use the rendered colors for more accurate renders
-
-
-#define NO_GLOBAL_BOUNCE 1
 //#define LIGHT_STOPS_RAY  // stops the ray if it hits the light source
 // --------------------------
 
@@ -41,25 +33,25 @@
 #define BLACK (color_t){.r = 0, .g = 0, .b = 0, .a = -1}
 
 typedef struct {
-  double r;
-  double g;
-  double b;
-  double a;
+  float r;
+  float g;
+  float b;
+  float a;
 } color_t;
 
 typedef struct {
   char use;
-  double x;
-  double y;
-  double z;
+  float x;
+  float y;
+  float z;
   int radius;
   color_t color;
 } circle_t;
 
 typedef struct {
-  double x;
-  double y;
-  double z;
+  float x;
+  float y;
+  float z;
 } vector_t;
 
 

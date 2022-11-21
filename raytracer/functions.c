@@ -1,27 +1,25 @@
 // point vectors are the substraction of the end with the start
-vector_t getVector(int32_t x, int32_t y, int32_t z, int32_t x2, int32_t y2, int32_t z2){
+vector_t getVector(double x, double y, double z, double x2, double y2, double z2){
   return (vector_t) {
     .x = x2-x,
     .y = y2-y,
     .z = z2-z};
 } 
 
-vector_t normalizeVector( int32_t x,int32_t y, int32_t z,int32_t len) {
+vector_t normalizeVector( double x,double y, double z,double len) {
   return (vector_t) {
     .x = x/len, 
     .y = y/len, 
     .z = z/len};
 }
 
-int32_t dotProduct(vector_t v1,vector_t v2) {
+double dotProduct(vector_t v1,vector_t v2) {
   return (v1.x*v2.x + v1.y*v2.y + v1.z*v2.z);
 }
 
-void putPixel(int x, int y, float r, float g, float b, float a)
+void putPixel(int x, int y, double r, double g, double b, double a)
 {
-  r = r / 255;
-  g = g / 255;
-  b = b / 255;
+  vbuff[y][x] = (color_t){.r = r, .g = g, .b = b, .a = a};
   S2D_DrawQuad(
       x, y, r, g, b, a,
       x, y + PIX_SIZE_H, r, g, b, a,
@@ -29,7 +27,7 @@ void putPixel(int x, int y, float r, float g, float b, float a)
       x + PIX_SIZE_W, y + PIX_SIZE_H, r, g, b, a);
 }
 
-void addCircle(int32_t x, int32_t y, int32_t z, int radius, color_t color)
+void addCircle(double x, double y, double z, int radius, color_t color)
 {
   objects[current_object++] = (circle_t){
       .use = 1,
@@ -41,12 +39,12 @@ void addCircle(int32_t x, int32_t y, int32_t z, int radius, color_t color)
   };
 }
 
-float Distance(int32_t x, int32_t y, int32_t z, int32_t x2, int32_t y2, int32_t z2)
+double Distance(double x, double y, double z, double x2, double y2, double z2)
 {
-  return sqrt((float)((x - x2) * (x - x2) + (y - y2) * (y - y2) + (z - z2) * (z - z2)));
+  return sqrt((double)((x - x2) * (x - x2) + (y - y2) * (y - y2) + (z - z2) * (z - z2)));
 }
 
-// float VectorAngleDifference(int32_t x1, int32_t y1, int32_t z1, int32_t x2, int32_t y2, int32_t z2, int32_t x3, int32_t y3, int32_t z3, int32_t x4, int32_t y4, int32_t z4)
+// double VectorAngleDifference(double x1, double y1, double z1, double x2, double y2, double z2, double x3, double y3, double z3, double x4, double y4, double z4)
 // { // 1 and 2 = first coord, 3 and 4 = second coord
 //   return acos(
 //       ((x2 - x1) * (x4 - x3) + (y2 - y1) * (y4 - y3) + (z2 - z1) * (z4 - z3)) /
